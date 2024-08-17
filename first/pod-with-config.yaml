@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: go-app-pod
+spec:
+  containers:
+  - name: go-container
+    image: golang:1.20-alpine
+    envFrom:
+    - configMapRef:
+        name: go-app-config
+    - secretRef:
+        name: go-app-secret
