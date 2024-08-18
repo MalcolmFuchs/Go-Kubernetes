@@ -1,0 +1,14 @@
+# Verwende das offizielle Go-Image als Basis
+FROM golang:1.23-alpine
+
+# Setze das Arbeitsverzeichnis im Container
+WORKDIR /app
+
+# Kopiere die Go-Quellcodedateien in das Arbeitsverzeichnis
+COPY . .
+
+# Baue die Go-Anwendung
+RUN go build -o secondapp
+
+# Definiere den Befehl, der beim Starten des Containers ausgeführt wird
+CMD ["./secondapp"]
